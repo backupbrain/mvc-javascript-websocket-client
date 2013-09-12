@@ -7,6 +7,15 @@
 function Console(consoleElement) {
     this.con = consoleElement;
 }
+Console.prototype.appendFromClient = function(data) {	
+	this.append('<div class="msg"><i class="icon-laptop">You said:</i><pre>'+this.encodeHTML(data)+"</pre></div>");
+}
+Console.prototype.appendFromServer = function(data) {
+	this.append('<div class="msg"><i class="icon-white icon-cloud">Server said:</i><pre>'+this.encodeHTML(data)+"</pre></div>");
+}
+Console.prototype.appendError = function(data) {
+	this.append('<div class="msg"><i class="icon-white icon-warning-sign">Error:</i><pre>'+this.encodeHTML(data)+"</pre></div>");
+}
 /**
  * append text to the console
  */

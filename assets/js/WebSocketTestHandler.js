@@ -16,7 +16,7 @@ function WebSocketTestHandler(console) {
  *  publish your message into the console
  */
 WebSocketTestHandler.prototype.send = function(message) {
-	this.con.append('<div class="msg"><i class="icon-laptop">You said:</i><pre>'+this.con.encodeHTML(message)+"</pre></div>");
+	this.con.appendFromClient(message);
 }
 
 /**
@@ -37,7 +37,7 @@ WebSocketTestHandler.prototype.onOpen = function() {
  */
 WebSocketTestHandler.prototype.onMessage = function(e) {
 	var message = e.data;
-	this.con.append('<div class="msg"><i class="icon-white icon-cloud">Server said:</i><pre>'+this.con.encodeHTML(message)+"</pre></div>");
+	this.con.appendFromServer(message);
 };
 
 /**
@@ -59,5 +59,5 @@ WebSocketTestHandler.prototype.onClose = function() {
  */
 WebSocketTestHandler.prototype.onError = function() {
 	var message = e.data;
-	this.con.append('<div class="msg"><i class="icon-white icon-warning-sign">Error:</i><pre>'+message+"</pre></div>");
+	this.con.appendError(message);
 };
