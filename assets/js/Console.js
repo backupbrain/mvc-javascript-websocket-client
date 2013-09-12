@@ -36,3 +36,11 @@ Console.prototype.scrollToBottom = function() {
 Console.prototype.isAtBottom = function() {
     return (this.con[0].scrollHeight - this.con[0].clientHeight <= this.con.scrollTop());
 }
+/**
+ * encode HTML so it's safe for printing
+ */
+Console.prototype.encodeHTML = function(message) {
+	// this method taken from:
+	// http://stackoverflow.com/questions/1219860/html-encoding-in-javascript-jquery
+	return $('<div/>').text(message).html();
+}
