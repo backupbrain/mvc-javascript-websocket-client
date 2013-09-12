@@ -1,14 +1,20 @@
 // Console.js
 
+
 /**
  * The console outputs data to the screen
  */
 function Console(consoleElement) {
-	this.con = consoleElement;
+    this.con = consoleElement;
 }
+/**
+ * append text to the console
+ */
 Console.prototype.append = function(data) {
-	// only scroll to bottom if we are currently scrolled down
-	// if the user is browsing earlier content, don't force them down
+    // only scroll to bottom if we are currently 
+    // scrolled down
+	// if the user is browsing earlier content, 
+    // don't force them down
 	// the page when the console updates
 	scrollToBottom = false
 	if (this.isAtBottom()) {
@@ -17,9 +23,16 @@ Console.prototype.append = function(data) {
 	this.con.html(this.con.html()+data);
 	if (scrollToBottom) this.scrollToBottom();
 };
+/**
+ * scroll the console to the bottom
+ */
 Console.prototype.scrollToBottom = function() {
 	this.con.scrollTop(this.con[0].scrollHeight);
 };
+/**
+ * determine if the console is currently 
+ * scrolled to the bottom
+ */
 Console.prototype.isAtBottom = function() {
-	return (this.con[0].scrollHeight - this.con[0].clientHeight <= this.con.scrollTop());
+    return (this.con[0].scrollHeight - this.con[0].clientHeight <= this.con.scrollTop());
 }
