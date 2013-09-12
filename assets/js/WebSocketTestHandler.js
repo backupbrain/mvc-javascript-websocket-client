@@ -47,7 +47,7 @@ WebSocketTestHandler.prototype.onMessage = function(e) {
  *   - notify user of the connection
  */
 WebSocketTestHandler.prototype.onClose = function() {
-	$("#connected").html('<i class="icon-check-empty">');
+	$("#connected").html('<i class="icon-check-empty"></i>');
 	$("#disconnect").hide();
 	$("#connect").show();
 	$("#send").addClass("disabled");
