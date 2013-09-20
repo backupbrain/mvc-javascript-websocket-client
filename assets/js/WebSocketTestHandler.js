@@ -57,7 +57,7 @@ WebSocketTestHandler.prototype.onClose = function() {
  * if there was an error,
  * print the error into the console
  */
-WebSocketTestHandler.prototype.onError = function() {
+WebSocketTestHandler.prototype.onError = function(e) {
 	var message = e.data;
 	this.con.appendError(message);
 };

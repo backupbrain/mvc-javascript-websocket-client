@@ -19,7 +19,7 @@ function WebSocketClient (serverURI, handler) {
 	this.ws.onclose = function() {
 		handler.onClose();
 	};
-    this.ws.onerror = function() {
+    this.ws.onerror = function(e) {
 		handler.onError(e);
 	
 	};
